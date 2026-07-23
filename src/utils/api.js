@@ -13,15 +13,19 @@ async function fetchAPI(
 async function parseAPI(rawData) {
   try {
     const weatherData = await rawData.json();
-    const temps = [];
+    const days = weatherData.days;
 
-    for (let i = 0; i < weatherData.days.length; i++) {
-      temps[i] = weatherData.days[i].temp;
-    }
+    const dates = days.map((day) => {
+      return new Date(day.datetime).toLocaleDateString();
+    });
 
-    return temps;
+    const temps = days.map((day) => {
+      return day.temp;
+    });
+
+    return { dates, temps };
   } catch (err) {
-    console.log(err);
+    return err;
   }
 }
 
@@ -38,7 +42,7 @@ function getEndDate() {
 
 export default async function APIController(location) {
   const response = await fetchAPI(location);
-  const data = await parseAPI(response);
+  const { dates, temps } = await parseAPI(response);
 
-  console.log(data);
+  return { dates, temps };
 }
