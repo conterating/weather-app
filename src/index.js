@@ -1,5 +1,6 @@
 import APIController from "./utils/api.js";
 import getLocation from "./utils/location.js";
+import render from "./utils/ui.js";
 
 const form = document.querySelector("form");
 
@@ -9,8 +10,7 @@ async function handleSubmission(event) {
   const location = getLocation();
   const { dates, temps } = await APIController(location);
 
-  console.log(dates);
-  console.log(temps);
+  render(dates, temps);
 }
 
 form.addEventListener("submit", handleSubmission);
