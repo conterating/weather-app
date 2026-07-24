@@ -3,14 +3,17 @@ import getLocation from "./utils/location.js";
 import render from "./utils/ui.js";
 
 const form = document.querySelector("form");
+const container = document.querySelector(".display-weather");
 
 async function handleSubmission(event) {
   event.preventDefault();
 
   const location = getLocation();
-  const { dates, temps } = await APIController(location);
+  const temp = await APIController(location);
 
-  render(dates, temps);
+  render(temp, container);
+
+  form.reset();
 }
 
 form.addEventListener("submit", handleSubmission);
