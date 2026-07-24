@@ -12,7 +12,7 @@ async function parseAPI(rawData) {
     console.log(weatherData);
     return weatherData.currentConditions.temp;
   } catch (err) {
-    return err;
+    return "Please enter a valid location!";
   }
 }
 
