@@ -3,3 +3,26 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: "Darlington";
+  src: url("../fonts/darlington-font/DarlingtonDemo-z8xjG.ttf")
+    format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+.page-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20vh;
+}
+
+.page-header {
+  font-family: "Darlington";
+  font-size: 3rem;
+}

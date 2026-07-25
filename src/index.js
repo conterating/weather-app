@@ -1,7 +1,7 @@
 import APIController from "./utils/api.js";
 import getLocation from "./utils/location.js";
 import render from "./utils/ui.js";
-import convert from "./utils/conversion.js";
+import "./styles/styles.css";
 
 const form = document.querySelector("form");
 const container = document.querySelector(".display-weather");
